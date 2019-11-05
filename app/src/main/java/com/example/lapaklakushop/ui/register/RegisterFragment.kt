@@ -6,7 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.example.lapaklakushop.R
+import com.example.lapaklakushop.ui.register.model.RegisterResponse
+import kotlinx.android.synthetic.main.register_fragment.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.toast
 
 class RegisterFragment : Fragment() {
 
@@ -27,6 +33,41 @@ class RegisterFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         // TODO: Use the ViewModel
+
+        btnRegister.onClick {
+            viewModel.register(txtRegisterName.text.toString(),
+                txtRegisterEmail.text.toString(),
+                txtRegisterPassword.text.toString(),
+                txtRegisterPhone.text.toString())
+        }
+
+        attachObserve()
+    }
+
+    private fun attachObserve() {
+        viewModel.isLoading.observe(this, Observer {
+            it ->showProgress(it)
+        })
+
+        viewModel.apiError.observe(this, Observer { showError(it) })
+
+        viewModel.responseRegister.observe(this, Observer { showResponse(it) })
+    }
+
+    private fun showResponse(it: RegisterResponse?) {
+        activity?.toast(it?.message ?:"")
+    }
+
+    private fun showError(it: Throwable?) {
+        activity?.toast(it?.message ?:"")
+    }
+
+    private fun showProgress(it: Boolean?) {
+        if (it != false){
+            progressSign.visibility = View.VISIBLE
+        }else{
+            progressSign.visibility = View.GONE
+        }
     }
 
 }

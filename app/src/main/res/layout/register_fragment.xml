@@ -70,4 +70,11 @@
             android:textAllCaps="false"
             android:background="@color/colorPrimary"/>
 
+    <ProgressBar
+            android:id="@+id/progressSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
 </LinearLayout>

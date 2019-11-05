@@ -1,26 +1,28 @@
-package com.example.lapaklakushop.ui.register
+package com.example.lapaklakushop.ui.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lapaklakushop.repo.TransactionRepository
+import com.example.lapaklakushop.ui.login.model.LoginResponse
 import com.example.lapaklakushop.ui.register.model.RegisterResponse
 
-class RegisterViewModel : ViewModel() {
-
+class LoginViewModel : ViewModel() {
+    // TODO: Implement the ViewModel
     // get repository
     var transactionRepository = TransactionRepository()
 
     //create live data utk true/false dari progressbar
     var isLoading = MutableLiveData<Boolean>()
 
-    var responseRegister = MutableLiveData<RegisterResponse>()
+    var responseLogin = MutableLiveData<LoginResponse>()
 
     var apiError = MutableLiveData<Throwable>()
 
-    fun register(name:String, email:String, password: String, noPhone:String){
+
+    fun login(email:String, password: String){
         isLoading.value = true
-        transactionRepository.register(name,email,password,noPhone,{
-            responseRegister.value = it
+        transactionRepository.login(email,password,{
+            responseLogin.value = it
             isLoading.value =false
         },{
             apiError.value = it
@@ -34,4 +36,5 @@ class RegisterViewModel : ViewModel() {
 
         transactionRepository.onClear()
     }
+
 }

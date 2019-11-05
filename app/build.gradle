@@ -15,8 +15,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        debug{
-            buildConfigField("String","BASE_URL","\"http://192.168.20.246/server_commerce/index.php/Api/\"")
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://192.168.10.65/server_commerce/index.php/Api/\"")
         }
         release {
             minifyEnabled false

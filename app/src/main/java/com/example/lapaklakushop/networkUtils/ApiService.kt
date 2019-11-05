@@ -1,5 +1,6 @@
 package com.example.lapaklakushop.networkUtils
 
+import com.example.lapaklakushop.ui.login.model.LoginResponse
 import com.example.lapaklakushop.ui.register.model.RegisterResponse
 import io.reactivex.Single
 import retrofit2.http.Field
@@ -14,4 +15,9 @@ interface ApiService {
                         @Field("email")email:String,
                         @Field("hp")hp:String,
                         @Field("password")password:String):Single<RegisterResponse>
+
+    @FormUrlEncoded
+    @POST("loginCustomer")
+    fun loginCommand(@Field("email")email:String,
+                     @Field("password")password:String):Single<LoginResponse>
 }
