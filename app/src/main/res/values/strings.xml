@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LapakLakuShop</string>
+    <string name="names">Nama</string>
+    <string name="emails">Email</string>
+    <string name="phones">Phone</string>
+    <string name="passwords">Password</string>
+    <string name="sign_ups">Sign Up</string>
+</resources>
