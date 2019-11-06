@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.lapaklakushop.R
+import com.example.lapaklakushop.ui.LoginActivity
 import com.example.lapaklakushop.ui.register.model.RegisterResponse
 import kotlinx.android.synthetic.main.register_fragment.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
 
@@ -45,17 +47,22 @@ class RegisterFragment : Fragment() {
     }
 
     private fun attachObserve() {
-        viewModel.isLoading.observe(this, Observer {
-            it ->showProgress(it)
-        })
-
+        viewModel.isLoading.observe(this, Observer { it ->showProgress(it) })
         viewModel.apiError.observe(this, Observer { showError(it) })
-
         viewModel.responseRegister.observe(this, Observer { showResponse(it) })
+        viewModel.isEmpty.observe(this, Observer { showIsEmpty(it) })
+    }
+
+    private fun showIsEmpty(it: Boolean) {
+        if (it)toast("Form tidak boleh kosong.Mohon Diisi.")
     }
 
     private fun showResponse(it: RegisterResponse?) {
-        activity?.toast(it?.message ?:"")
+
+
+        if (it?.status ==200)activity?.startActivity<LoginActivity>()
+        else activity?.toast(it?.message ?:"")
+
     }
 
     private fun showError(it: Throwable?) {

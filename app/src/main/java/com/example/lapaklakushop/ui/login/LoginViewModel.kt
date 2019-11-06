@@ -18,16 +18,27 @@ class LoginViewModel : ViewModel() {
 
     var apiError = MutableLiveData<Throwable>()
 
+    var isEmpty = MutableLiveData<Boolean>()
+
 
     fun login(email:String, password: String){
-        isLoading.value = true
-        transactionRepository.login(email,password,{
-            responseLogin.value = it
-            isLoading.value =false
-        },{
-            apiError.value = it
-            isLoading.value = false
-        })
+
+        if (email.isEmpty()||password.isEmpty()){
+
+            isEmpty.value=true
+        }else{
+            isLoading.value = true
+
+            isEmpty.value=false
+
+            transactionRepository.login(email,password,{
+                responseLogin.value = it
+                isLoading.value =false
+            },{
+                apiError.value = it
+                isLoading.value = false
+            })
+        }
 
     }
 

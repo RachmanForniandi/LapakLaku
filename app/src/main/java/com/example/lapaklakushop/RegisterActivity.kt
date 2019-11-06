@@ -14,6 +14,7 @@ class RegisterActivity : AppCompatActivity() {
                 .replace(R.id.container, RegisterFragment.newInstance())
                 .commitNow()
         }
+
     }
 
 }

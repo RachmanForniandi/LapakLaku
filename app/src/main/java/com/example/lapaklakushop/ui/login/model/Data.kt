@@ -1,9 +1,8 @@
 package com.example.lapaklakushop.ui.login.model
 
-import javax.annotation.Generated
+
 import com.google.gson.annotations.SerializedName
 
-@Generated("com.robohorse.robopojogenerator")
 data class Data(
 
 	@field:SerializedName("user_status")

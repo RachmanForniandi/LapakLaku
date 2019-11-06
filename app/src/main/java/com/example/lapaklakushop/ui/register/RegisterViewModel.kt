@@ -17,15 +17,27 @@ class RegisterViewModel : ViewModel() {
 
     var apiError = MutableLiveData<Throwable>()
 
+    var isEmpty = MutableLiveData<Boolean>()
+
     fun register(name:String, email:String, password: String, noPhone:String){
-        isLoading.value = true
-        transactionRepository.register(name,email,password,noPhone,{
-            responseRegister.value = it
-            isLoading.value =false
-        },{
-            apiError.value = it
-            isLoading.value = false
-        })
+
+        if (name.isEmpty()||email.isEmpty()||password.isEmpty()||noPhone.isEmpty()){
+            isEmpty.value= true
+        }else{
+
+            isLoading.value = true
+            isEmpty.value=false
+
+            transactionRepository.register(name,email,password,noPhone,{
+                responseRegister.value = it
+                isLoading.value =false
+            },{
+                apiError.value = it
+                isLoading.value = false
+            })
+
+        }
+
 
     }
 

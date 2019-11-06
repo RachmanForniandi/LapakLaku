@@ -5,4 +5,5 @@
     <string name="phones">Phone</string>
     <string name="passwords">Password</string>
     <string name="sign_ups">Sign Up</string>
+    <string name="login">Login</string>
 </resources>
