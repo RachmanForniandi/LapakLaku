@@ -1,14 +1,11 @@
 package com.example.lapaklakushop.repo
 
-import android.database.DatabaseErrorHandler
-import android.provider.ContactsContract
 import com.example.lapaklakushop.networkUtils.ApiClient
 import com.example.lapaklakushop.ui.login.model.LoginResponse
 import com.example.lapaklakushop.ui.register.model.RegisterResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import java.util.logging.Handler
 
 class TransactionRepository {
 

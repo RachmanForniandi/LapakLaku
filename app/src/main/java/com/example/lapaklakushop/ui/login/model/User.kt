@@ -3,7 +3,7 @@ package com.example.lapaklakushop.ui.login.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class User(
 
 	@field:SerializedName("user_status")
 	val userStatus: String? = null,

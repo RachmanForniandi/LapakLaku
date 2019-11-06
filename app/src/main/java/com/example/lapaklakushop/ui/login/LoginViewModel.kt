@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.lapaklakushop.repo.TransactionRepository
 import com.example.lapaklakushop.ui.login.model.LoginResponse
-import com.example.lapaklakushop.ui.register.model.RegisterResponse
 
 class LoginViewModel : ViewModel() {
     // TODO: Implement the ViewModel

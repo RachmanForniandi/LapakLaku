@@ -47,7 +47,7 @@ class SessionManager(internal var c: Context) {
     }
 
     //membuat session login
-    fun cerateLoginSession(token: String) {
+    fun createLoginSession(token: String) {
         editor.putString(KEY_TOKEN, token)
         editor.putBoolean(KEY_LOGIN, true)
         editor.commit()
