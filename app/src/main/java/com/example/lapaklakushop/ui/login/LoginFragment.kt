@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.example.lapaklakushop.MainActivity
+import com.example.lapaklakushop.ui.main.MainActivity
 import com.example.lapaklakushop.R
 import com.example.lapaklakushop.RegisterActivity
 import com.example.lapaklakushop.ui.login.model.LoginResponse

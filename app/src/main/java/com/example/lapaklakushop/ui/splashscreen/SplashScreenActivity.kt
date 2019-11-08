@@ -3,7 +3,7 @@ package com.example.lapaklakushop.ui.splashscreen
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.lapaklakushop.MainActivity
+import com.example.lapaklakushop.ui.main.MainActivity
 import com.example.lapaklakushop.R
 import com.example.lapaklakushop.ui.LoginActivity
 import com.example.lapaklakushop.utilSupport.SessionManager

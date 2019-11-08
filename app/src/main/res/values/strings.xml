@@ -6,4 +6,7 @@
     <string name="passwords">Password</string>
     <string name="sign_ups">Sign Up</string>
     <string name="login">Login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
